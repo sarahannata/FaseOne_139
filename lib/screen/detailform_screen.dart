@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:ucp_paml/screen/dataform_screen.dart';
 import 'package:ucp_paml/screen/datamakanan_screen.dart';
+import 'package:ucp_paml/widget/footerdetail_widget.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen(
@@ -49,6 +51,10 @@ class DetailScreen extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
+            DetailFooter(onPressedFooterDetail: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => DataForm()));
+            })
           ]),
         )),
       ),

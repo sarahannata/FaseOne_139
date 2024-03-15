@@ -15,7 +15,7 @@ class MakananScreen extends StatelessWidget {
     var makanan = TextEditingController();
     var minuman = TextEditingController();
     var dessert = TextEditingController();
-    var formKey = GlobalKey<FormState>();
+    var makankey = GlobalKey<FormState>();
 
     return Scaffold(
       appBar: AppBar(
@@ -41,12 +41,12 @@ class MakananScreen extends StatelessWidget {
                 height: 15,
               ),
               MakananForm(
-                  formKey: formKey,
+                  makankey: makankey,
                   etMakanan: makanan,
                   etMinuman: minuman,
                   etDessert: dessert),
               FooterMakanan(onPressedFooterMakanan: () {
-                if (formKey.currentState!.validate()) {
+                if (makankey.currentState!.validate()) {
                   Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(

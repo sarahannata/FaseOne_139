@@ -5,12 +5,12 @@ import 'package:flutter/src/widgets/placeholder.dart';
 class MakananForm extends StatefulWidget {
   MakananForm(
       {super.key,
-      required this.formKey,
+      required this.makankey,
       required this.etMakanan,
       required this.etMinuman,
       required this.etDessert});
 
-  final GlobalKey<FormState> formKey;
+  final GlobalKey<FormState> makankey;
   final TextEditingController etMakanan;
   final TextEditingController etMinuman;
   final TextEditingController etDessert;
@@ -23,6 +23,7 @@ class _MakananFormState extends State<MakananForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: widget.makankey,
       child: Column(children: [
         TextFormField(
           keyboardType: TextInputType.text,
