@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ucp_paml/screen/dataform_screen.dart';
+import 'package:ucp_paml/widget/makananform_widget.dart';
 
 class MakananScreen extends StatelessWidget {
   const MakananScreen({super.key, required this.nama, required this.notelp});
@@ -9,6 +10,11 @@ class MakananScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var makanan = TextEditingController();
+    var minuman = TextEditingController();
+    var dessert = TextEditingController();
+    var formKey = GlobalKey<FormState>();
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Data Makanan"),
@@ -20,11 +26,27 @@ class MakananScreen extends StatelessWidget {
           },
         ),
       ),
-      body: Center(
+      body: SafeArea(
+        child: Center(
+            child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text("Nama : $nama"), Text("No. Telepon : $notelp")],
-      )),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Nama : $nama"),
+              Text("No. Telepon : $notelp"),
+              SizedBox(
+                height: 15,
+              ),
+              MakananForm(
+                  formKey: formKey,
+                  etMakanan: makanan,
+                  etMinuman: minuman,
+                  etDessert: dessert)
+            ],
+          ),
+        )),
+      ),
     );
   }
 }
