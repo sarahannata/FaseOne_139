@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ucp_paml/screen/dataform_screen.dart';
+import 'package:ucp_paml/screen/detailform_screen.dart';
+import 'package:ucp_paml/widget/footermakanan_widget.dart';
 import 'package:ucp_paml/widget/makananform_widget.dart';
 
 class MakananScreen extends StatelessWidget {
@@ -42,7 +44,21 @@ class MakananScreen extends StatelessWidget {
                   formKey: formKey,
                   etMakanan: makanan,
                   etMinuman: minuman,
-                  etDessert: dessert)
+                  etDessert: dessert),
+              FooterMakanan(onPressedFooterMakanan: () {
+                if (formKey.currentState!.validate()) {
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailScreen(
+                              nama: nama,
+                              notelp: notelp,
+                              makanan: makanan.text,
+                              minuman: minuman.text,
+                              dessert: dessert.text)),
+                      (route) => false);
+                }
+              })
             ],
           ),
         )),
