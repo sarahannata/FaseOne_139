@@ -34,6 +34,7 @@ class DataForm extends StatelessWidget {
                     MaterialPageRoute(
                         builder: (context) => MakananScreen(
                               nama: nama.text,
+                              notelp: notelp.text,
                             )),
                     (route) => false);
               }
